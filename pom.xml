@@ -11,8 +11,6 @@
 
   <properties>
     <spring.version>5.2.7.RELEASE</spring.version>
-    <maven.compiler.source>18</maven.compiler.source>
-    <maven.compiler.target>18</maven.compiler.target>
   </properties>
 
   <dependencies>
