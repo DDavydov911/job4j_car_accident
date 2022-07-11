@@ -22,15 +22,4 @@ public class IndexControl {
         model.addAttribute("accidents", service.findAll());
         return "index";
     }
-
-    @GetMapping("/create")
-    public String create() {
-        return "accident/create";
-    }
-
-    @PostMapping("/save")
-    public String save(@ModelAttribute Accident accident) {
-        service.create(accident);
-        return "redirect:/";
-    }
 }

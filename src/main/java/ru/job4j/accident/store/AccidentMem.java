@@ -28,4 +28,12 @@ public class AccidentMem {
         accident.setId(id.incrementAndGet());
         accidents.put(id.get(), accident);
     }
+
+    public void update(Accident accident) {
+        accidents.replace(accident.getId(), accident);
+    }
+
+    public Accident getAccidentById(int id) {
+        return accidents.get(id);
+    }
 }

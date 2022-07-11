@@ -26,24 +26,24 @@
     <div class="row pt-3">
         <div class="card" style="width: 100%">
             <div class="card-header">
-                Новое событие.
+                Редактирование события.
             </div>
             <div class="card-body">
-                <form action="<c:url value='/save'/>" method='POST'>
-                    <input type="hidden" name="id" value="0"/>
+                <form action="<c:url value='/edit'/>" method='POST'>
+                    <input type="hidden" name="id" value="${accident.id}"/>
                     <div class="form-group">
                         <label for="name">Название:</label>
-                        <input type="text" class="form-control" name="name" id="name">
+                        <input type="text" class="form-control" value="${accident.name}" name="name" id="name" >
                     </div>
 
                     <div class="form-group">
                         <label for="text">Текст:</label>
-                        <input type="text" class="form-control" name="text" id="text">
+                        <input type="text" class="form-control" value="${accident.text}" name="text" id="text">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Адрес:</label>
-                        <input type="text" class="form-control" name="address" id="address">
+                        <input type="text" class="form-control" value="${accident.address}" name="address" id="address">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Сохранить</button>

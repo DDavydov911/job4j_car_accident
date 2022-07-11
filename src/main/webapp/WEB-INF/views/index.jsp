@@ -38,6 +38,12 @@
             <tr>
                 <td style="padding-left: 40px">${accident.id}</td>
                 <td>${accident.name}</td>
+                <td>
+                    <form action="<c:url value='/edit'/>" method='GET'>
+                        <input type="hidden" name="accidentId" value="${accident.id}"/>
+                        <input name="submit" type="submit" value="Редактировать" />
+                    </form>
+                </td>
             </tr>
         </c:forEach>
     </table>
