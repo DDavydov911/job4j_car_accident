@@ -21,10 +21,10 @@
 <body>
 <div class="row">
     <table class="table">
-        <c:forEach var="string" items="${arr}" varStatus="сounter" >
+        <c:forEach var="accident" items="${accidents}">
             <tr>
-                <td style="padding-left: 40px">${сounter.count}</td>
-                <td>${string}</td>
+                <td style="padding-left: 40px">${accident.id}</td>
+                <td>${accident.name}</td>
             </tr>
         </c:forEach>
     </table>
