@@ -12,12 +12,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AccidentMem {
     AtomicInteger id = new AtomicInteger(0);
 
+    private final AccidentTypeMem accidentTypeMem;
+
     Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
 
-    public AccidentMem() {
-        accidents.put(id.incrementAndGet(), new Accident(id.get(), "Accident1", "Description", "Moscow"));
-        accidents.put(id.incrementAndGet(), new Accident(id.get(), "Accident2", "Description", "Spb"));
-        accidents.put(id.incrementAndGet(), new Accident(id.get(), "Accident3", "Description", "Ekb"));
+    public AccidentMem(AccidentTypeMem accidentTypeMem) {
+        this.accidentTypeMem = accidentTypeMem;
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident1", "Description", "Moscow",
+                        accidentTypeMem.findAccidentTypeById(1)));
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident2", "Description", "Spb",
+                        accidentTypeMem.findAccidentTypeById(2)));
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident3", "Description", "Ekb",
+                        accidentTypeMem.findAccidentTypeById(3)));
     }
 
     public Collection<Accident> findAll() {
