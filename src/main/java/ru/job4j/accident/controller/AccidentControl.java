@@ -29,13 +29,13 @@ public class AccidentControl {
         return "redirect:/";
     }
 
-    @GetMapping("/edit")
-    public String getEditPage(Model model, @RequestParam int accidentId) {
-        model.addAttribute("accident", service.getAccidentById(accidentId));
-        return "accident/edit";
+    @GetMapping("/update")
+    public String getEditPage(Model model, @RequestParam("id") int id) {
+        model.addAttribute("accident", service.getAccidentById(id));
+        return "accident/update";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/update")
     public String edit(@ModelAttribute Accident accident) {
         service.update(accident);
         return "redirect:/";

@@ -34,15 +34,16 @@
         </div>
     </nav>
     <table class="table">
-        <c:forEach var="accident" items="${accidents}">
+        <c:forEach var="accident" items="${accidents}" varStatus="сounter">
             <tr>
-                <td style="padding-left: 40px">${accident.id}</td>
+                <td style="padding-left: 40px">${сounter.count}</td>
                 <td>${accident.name}</td>
                 <td>
-                    <form action="<c:url value='/edit'/>" method='GET'>
-                        <input type="hidden" name="accidentId" value="${accident.id}"/>
-                        <input name="submit" type="submit" value="Редактировать" />
-                    </form>
+<%--                    <form action="<c:url value='/update'/>" method='GET'>--%>
+<%--                        <input type="hidden" name="accidentId" value="${accident.id}"/>--%>
+<%--                        <input name="submit" type="submit" value="Редактировать" />--%>
+<%--                    </form>--%>
+                <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
                 </td>
             </tr>
         </c:forEach>
