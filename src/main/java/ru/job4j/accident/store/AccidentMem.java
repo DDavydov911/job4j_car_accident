@@ -23,4 +23,9 @@ public class AccidentMem {
     public Collection<Accident> findAll() {
         return accidents.values();
     }
+
+    public void create(Accident accident) {
+        accident.setId(id.incrementAndGet());
+        accidents.put(id.get(), accident);
+    }
 }

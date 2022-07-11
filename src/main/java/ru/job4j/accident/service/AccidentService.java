@@ -17,6 +17,10 @@ public class AccidentService {
     }
 
     public List<Accident> findAll() {
-        return new ArrayList(mem.findAll());
+        return new ArrayList<>(mem.findAll());
+    }
+
+    public void create(Accident accident) {
+        mem.create(accident);
     }
 }
