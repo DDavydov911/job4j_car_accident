@@ -2,6 +2,8 @@ package ru.job4j.accident.model;
 
 import lombok.*;
 
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
@@ -15,6 +17,8 @@ public class Accident {
     private String text;
     @NonNull
     private String address;
-
+    @NonNull
     private AccidentType type;
+    @NonNull
+    private Set<Rule> rules;
 }
