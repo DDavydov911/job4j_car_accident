@@ -46,6 +46,16 @@
                 <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
                 </td>
             </tr>
+            <tr>
+                <td>Статьи:</td>
+                <td>
+                    <select name="rIds" multiple>
+                        <c:forEach var="rule" items="${rules}" >
+                            <option value="${rule.id}">${rule.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
         </c:forEach>
     </table>
 </div>
