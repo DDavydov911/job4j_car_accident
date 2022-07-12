@@ -2,6 +2,7 @@ package ru.job4j.accident.store;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 
 import java.util.Collection;
@@ -16,16 +17,16 @@ public class AccidentMem {
 
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
 
-    public AccidentMem(AccidentTypeMem accidentTypeMem) {
+    public AccidentMem() {
         accidents.put(id.incrementAndGet(),
                 new Accident(id.get(), "Accident1", "Description", "Moscow",
-                        accidentTypeMem.findAccidentTypeById(1), Set.of(Rule.of(1, "Статья 1"))));
+                        AccidentType.of(1, "Две машины"), Set.of(Rule.of(1, "Статья 1"))));
         accidents.put(id.incrementAndGet(),
                 new Accident(id.get(), "Accident2", "Description", "Spb",
-                        accidentTypeMem.findAccidentTypeById(2), Set.of(Rule.of(2, "Статья 2"))));
+                        AccidentType.of(2, "Машина и человек"), Set.of(Rule.of(2, "Статья 2"))));
         accidents.put(id.incrementAndGet(),
                 new Accident(id.get(), "Accident3", "Description", "Ekb",
-                        accidentTypeMem.findAccidentTypeById(3), Set.of(Rule.of(3, "Статья 3"))));
+                        AccidentType.of(3, "Машина и велосипед"), Set.of(Rule.of(3, "Статья 3"))));
     }
 
     public Collection<Accident> findAll() {
