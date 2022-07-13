@@ -39,21 +39,19 @@
                 <td style="padding-left: 40px">${сounter.count}</td>
                 <td>${accident.name}</td>
                 <td>
-<%--                    <form action="<c:url value='/update'/>" method='GET'>--%>
-<%--                        <input type="hidden" name="accidentId" value="${accident.id}"/>--%>
-<%--                        <input name="submit" type="submit" value="Редактировать" />--%>
-<%--                    </form>--%>
-                <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
+                        <%--                    <form action="<c:url value='/update'/>" method='GET'>--%>
+                        <%--                        <input type="hidden" name="accidentId" value="${accident.id}"/>--%>
+                        <%--                        <input name="submit" type="submit" value="Редактировать" />--%>
+                        <%--                    </form>--%>
+                    <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
                 </td>
             </tr>
             <tr>
                 <td>Статьи:</td>
                 <td>
-                    <select name="rIds" multiple>
-                        <c:forEach var="rule" items="${rules}" >
-                            <option value="${rule.id}">${rule.name}</option>
-                        </c:forEach>
-                    </select>
+                    <c:forEach var="rule" items="${accident.rules}">
+                        <span>${rule.name}</span>
+                    </c:forEach>
                 </td>
             </tr>
         </c:forEach>

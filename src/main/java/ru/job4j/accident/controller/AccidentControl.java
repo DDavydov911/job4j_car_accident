@@ -10,32 +10,29 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.AccidentTypeService;
+import ru.job4j.accident.service.RulesService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AccidentControl {
 
     private final AccidentService service;
+    private final AccidentTypeService typeService;
+    private final RulesService rulesService;
 
-    public AccidentControl(AccidentService service) {
+    public AccidentControl(AccidentService service, AccidentTypeService typeService, RulesService rulesService) {
         this.service = service;
+        this.typeService = typeService;
+        this.rulesService = rulesService;
     }
 
     @GetMapping("/create")
     public String create(Model model) {
-        List<AccidentType> types = new ArrayList<>();
-        types.add( AccidentType.of(1, "Две машины"));
-        types.add(AccidentType.of(2, "Машина и человек"));
-        types.add(AccidentType.of(3, "Машина и велосипед"));
-        model.addAttribute("types", types);
-        List<Rule> rules = new ArrayList<>();
-        rules.add(Rule.of(1, "Статья. 1"));
-        rules.add(Rule.of(2, "Статья. 2"));
-        rules.add(Rule.of(3, "Статья. 3"));
-        model.addAttribute("rules", rules);
+        model.addAttribute("types", typeService.findAll());
+        model.addAttribute("rules", rulesService.findAll());
         return "accident/create";
     }
 
@@ -43,7 +40,12 @@ public class AccidentControl {
     public String save(@ModelAttribute Accident accident,
                        @RequestParam("type.id") int id, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        accident.setType(AccidentType.of(id, "something"));
+        accident.setType(typeService.getTypeById(id));
+        Set<Rule> rules = new HashSet<>();
+        Arrays.stream(ids).forEach(
+                ruleId -> rules.add(rulesService.getRuleById(Integer.parseInt(ruleId)))
+        );
+        accident.setRules(rules);
         service.create(accident);
         return "redirect:/";
     }
@@ -51,11 +53,7 @@ public class AccidentControl {
     @GetMapping("/update")
     public String getEditPage(Model model, @RequestParam("id") int id) {
         model.addAttribute("accident", service.getAccidentById(id));
-        List<AccidentType> types = new ArrayList<>();
-        types.add( AccidentType.of(1, "Две машины"));
-        types.add(AccidentType.of(2, "Машина и человек"));
-        types.add(AccidentType.of(3, "Машина и велосипед"));
-        model.addAttribute("types", types);
+        model.addAttribute("types", typeService.findAll());
         return "accident/update";
     }
 
@@ -65,5 +63,9 @@ public class AccidentControl {
         accident.setType(AccidentType.of(id, "something"));
         service.update(accident);
         return "redirect:/";
+    }
+
+    private void printList(List list) {
+        list.forEach(System.out::println);
     }
 }

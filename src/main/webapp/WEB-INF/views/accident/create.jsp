@@ -48,9 +48,18 @@
 
                     <div>
                         <label for="type">Тип проишествия:</label>
-                        <select name="type.id" id="type">
-                            <c:forEach var="type" items="${types}" >
+                        <select class="form-control" name="type.id" id="type">
+                            <c:forEach var="type" items="${types}">
                                 <option value="${type.id}">${type.name}</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="rules">Статьи:</label>
+                        <select class="form-control" name="rIds" id="rules" multiple>
+                            <c:forEach var="rule" items="${rules}">
+                                <option value="${rule.id}">${rule.name}</option>
                             </c:forEach>
                         </select>
                     </div>
