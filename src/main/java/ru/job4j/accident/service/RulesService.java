@@ -15,7 +15,6 @@ public class RulesService {
     }
 
     public List<Rule> findAll() {
-        System.out.println("Execute findAll() in Service");
         return ruleMem.findAll();
     }
 

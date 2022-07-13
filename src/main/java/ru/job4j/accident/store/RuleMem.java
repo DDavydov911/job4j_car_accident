@@ -21,7 +21,6 @@ public class RuleMem {
     }
 
     public List<Rule> findAll() {
-        System.out.println("Execute findAll() in Repo");
         return new ArrayList<>(rules.values());
     }
 

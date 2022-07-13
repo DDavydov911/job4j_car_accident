@@ -62,7 +62,6 @@
                         <select class="form-control" name="rIds" id="rules" multiple>
                             <c:forEach var="rule" items="${rules}">
                                 <option value="${rule.id}" ${fn:contains(accident.rules, rule) ? 'selected' : ''}>${rule.name}</option>
-<%--                                <option value="${rule.id}" ${forEach :contains(accident.rules, rule) ? 'selected' : ''}>${rule.name}</option>--%>
                             </c:forEach>
                         </select>
                     </div>
