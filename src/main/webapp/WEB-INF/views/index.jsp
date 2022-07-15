@@ -29,7 +29,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a href="<c:url value='/create'/>">Добавить инцидент</a>
+                <a href="<c:url value='/create'/>">Добавить сообщение о проишествии</a>
             </div>
         </div>
     </nav>
@@ -39,11 +39,7 @@
                 <td style="padding-left: 40px">${сounter.count}</td>
                 <td>${accident.name}</td>
                 <td>
-                        <%--                    <form action="<c:url value='/update'/>" method='GET'>--%>
-                        <%--                        <input type="hidden" name="accidentId" value="${accident.id}"/>--%>
-                        <%--                        <input name="submit" type="submit" value="Редактировать" />--%>
-                        <%--                    </form>--%>
-                    <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать инцидент</a>
+                    <a href="<c:url value='/update?id=${accident.id}'/>">Редактировать сообщение о проишествии</a>
                 </td>
             </tr>
             <tr>

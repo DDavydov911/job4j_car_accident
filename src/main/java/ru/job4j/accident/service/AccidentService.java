@@ -11,12 +11,10 @@ import java.util.List;
 @Service
 public class AccidentService {
 
-    //    private final AccidentMem mem;
     private final AccidentJdbcTemplate jdbcTemplate;
 
     public AccidentService(AccidentMem mem, AccidentJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-//        this.mem = mem;
     }
 
     public List<Accident> findAll() {
