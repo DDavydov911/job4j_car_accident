@@ -2,6 +2,7 @@ package ru.job4j.accident.model;
 
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -17,8 +18,8 @@ public class Accident {
     private String text;
     @NonNull
     private String address;
-    @NonNull
+
     private AccidentType type;
-    @NonNull
-    private Set<Rule> rules;
+
+    private Set<Rule> rules = new HashSet<>();
 }
