@@ -21,13 +21,13 @@ public class Accident {
     private String text;
     @NonNull
     private String address;
+/**
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private AccidentType type;
 
-//    @ManyToOne
-//    @JoinColumn(name = "type_id")
-//    private AccidentType type;
-//
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<Rule> rules = new HashSet<>();
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Rule> rules = new HashSet<>();
+*/
 
 }

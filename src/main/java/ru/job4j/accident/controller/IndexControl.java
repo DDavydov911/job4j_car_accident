@@ -9,17 +9,17 @@ import ru.job4j.accident.store.AccidentHibernate;
 
 @Controller
 public class IndexControl {
-
-//    private final AccidentService service;
-//    public IndexControl(AccidentService service) {
-//        this.service = service;
-//    }
-//    @GetMapping("/")
-//    public String index(Model model) {
-//        model.addAttribute("accidents", service.findAll());
-//        return "index";
-//    }
-
+/**
+    private final AccidentService service;
+    public IndexControl(AccidentService service) {
+        this.service = service;
+    }
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("accidents", service.findAll());
+        return "index";
+    }
+*/
     private final AccidentHibernate accidents;
 
     public IndexControl(AccidentHibernate accidents) {

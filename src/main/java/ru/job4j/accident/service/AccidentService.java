@@ -7,8 +7,9 @@ import ru.job4j.accident.store.AccidentMem;
 
 import java.util.ArrayList;
 import java.util.List;
-
-//@Service
+/**
+@Service
+*/
 public class AccidentService {
 
     private final AccidentJdbcTemplate jdbcTemplate;

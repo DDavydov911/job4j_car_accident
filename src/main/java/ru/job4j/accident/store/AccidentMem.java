@@ -18,16 +18,18 @@ public class AccidentMem {
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
 
     public AccidentMem() {
-//        accidents.put(id.incrementAndGet(),
-//                new Accident(id.get(), "Accident1", "Description", "Moscow",
-//                        AccidentType.of(1, "Две машины"), Set.of(Rule.of(1, "Статья 1"))));
-//        accidents.put(id.incrementAndGet(),
-//                new Accident(id.get(), "Accident2", "Description", "Spb",
-//                        AccidentType.of(2, "Машина и человек"), Set.of(Rule.of(2, "Статья 2"))));
-//        accidents.put(id.incrementAndGet(),
-//                new Accident(id.get(), "Accident3", "Description", "Ekb",
-//                        AccidentType.of(3, "Машина и велосипед"), Set.of(Rule.of(1, "Статья 1"),
-//                        Rule.of(3, "Статья 3"))));
+        /**
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident1", "Description", "Moscow",
+                        AccidentType.of(1, "Две машины"), Set.of(Rule.of(1, "Статья 1"))));
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident2", "Description", "Spb",
+                        AccidentType.of(2, "Машина и человек"), Set.of(Rule.of(2, "Статья 2"))));
+        accidents.put(id.incrementAndGet(),
+                new Accident(id.get(), "Accident3", "Description", "Ekb",
+                        AccidentType.of(3, "Машина и велосипед"), Set.of(Rule.of(1, "Статья 1"),
+                        Rule.of(3, "Статья 3"))));
+         */
     }
 
     public Collection<Accident> findAll() {
