@@ -27,7 +27,7 @@ public class AccidentControl {
         this.typeService = typeService;
         this.rulesService = rulesService;
     }
-
+/**
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("types", typeService.findAll());
@@ -62,15 +62,16 @@ public class AccidentControl {
     private void setAttr(@ModelAttribute Accident accident,
                          @RequestParam("type.id") int id, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
-        accident.setType(typeService.getTypeById(id));
+//        accident.setType(typeService.getTypeById(id));
         Set<Rule> rules = new HashSet<>();
         Arrays.stream(ids).forEach(
                 ruleId -> rules.add(rulesService.getRuleById(Integer.parseInt(ruleId)))
         );
-        accident.setRules(rules);
+//        accident.setRules(rules);
     }
 
     private void printList(List list) {
         list.forEach(System.out::println);
     }
+                         */
 }

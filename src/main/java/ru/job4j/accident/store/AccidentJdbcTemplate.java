@@ -13,14 +13,14 @@ import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.Set;
 
-@Repository
+//@Repository
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
 
     public AccidentJdbcTemplate(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
-
+/**
     public Accident create(Accident accident) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbc.update(connection -> {
@@ -109,4 +109,5 @@ public class AccidentJdbcTemplate {
                 "join accidents a on ar.accident_id = a.id " +
                 "where a.id = ?", ruleRowMapper, accidentId);
     }
+ */
 }

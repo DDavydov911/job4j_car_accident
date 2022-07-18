@@ -8,7 +8,7 @@ import ru.job4j.accident.store.AccidentMem;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+//@Service
 public class AccidentService {
 
     private final AccidentJdbcTemplate jdbcTemplate;
@@ -16,7 +16,7 @@ public class AccidentService {
     public AccidentService(AccidentMem mem, AccidentJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
+/**
     public List<Accident> findAll() {
         return new ArrayList<>(jdbcTemplate.findAll());
     }
@@ -32,4 +32,5 @@ public class AccidentService {
     public Accident getAccidentById(int id) {
         return jdbcTemplate.getAccidentById(id);
     }
+ */
 }

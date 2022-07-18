@@ -1,16 +1,19 @@
 package ru.job4j.accident.model;
 
 import lombok.*;
+import javax.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
-@Data
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@Entity
+@Table(name = "accidents")
 public class Accident {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NonNull
     private String name;
@@ -19,7 +22,12 @@ public class Accident {
     @NonNull
     private String address;
 
-    private AccidentType type;
+//    @ManyToOne
+//    @JoinColumn(name = "type_id")
+//    private AccidentType type;
+//
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<Rule> rules = new HashSet<>();
 
-    private Set<Rule> rules = new HashSet<>();
+
 }
