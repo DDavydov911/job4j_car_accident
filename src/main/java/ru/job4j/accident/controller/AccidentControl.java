@@ -27,7 +27,7 @@ public class AccidentControl {
         this.typeService = typeService;
         this.rulesService = rulesService;
     }
-/**
+
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("types", typeService.findAll());
@@ -73,5 +73,5 @@ public class AccidentControl {
     private void printList(List list) {
         list.forEach(System.out::println);
     }
-                         */
+
 }

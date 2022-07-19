@@ -28,11 +28,11 @@ INSERT INTO accidents (name, text, address, type_id) VALUES('accident 2', 'Не 
 INSERT INTO accidents (name, text, address, type_id) VALUES('accident 3', 'Велосипедист ехал по проезжей части', 'ул.Строителей, 4', 3);
 
 
-CREATE TABLE accident_rule (
+CREATE TABLE accidents_rules (
      accident_id integer references accidents(id),
      rule_id integer references rules(id)
 );
-INSERT INTO accident_rule (accident_id, rule_id) VALUES(1, 2);
-INSERT INTO accident_rule (accident_id, rule_id) VALUES(2, 1);
-INSERT INTO accident_rule (accident_id, rule_id) VALUES(3, 1);
-INSERT INTO accident_rule (accident_id, rule_id) VALUES(3, 3);
+INSERT INTO accidents_rules (accident_id, rules_id) VALUES(1, 2);
+INSERT INTO accidents_rules (accident_id, rules_id) VALUES(2, 1);
+INSERT INTO accidents_rules (accident_id, rules_id) VALUES(3, 1);
+INSERT INTO accidents_rules (accident_id, rules_id) VALUES(3, 3);

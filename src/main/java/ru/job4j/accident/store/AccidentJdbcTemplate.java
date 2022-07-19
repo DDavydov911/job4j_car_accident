@@ -45,7 +45,7 @@ public class AccidentJdbcTemplate {
 
     private void setAccidentRules(Accident accident, Rule rule) {
         jdbc.update(
-                "insert into accident_rule (accident_id, rule_id) values (?, ?)",
+                "insert into accidents_rules (accident_id, rule_id) values (?, ?)",
                 accident.getId(), rule.getId()
         );
     }
@@ -62,7 +62,7 @@ public class AccidentJdbcTemplate {
                 "where id = ?",
                 accident.getName(), accident.getText(), accident.getAddress(),
                 accident.getType().getId(), accident.getId());
-        jdbc.update("delete from accident_rule ar WHERE ar.accident_id = ?", accident.getId());
+        jdbc.update("delete from accidents_rules ar WHERE ar.accident_id = ?", accident.getId());
         accident.getRules().forEach(rule -> setAccidentRules(accident, rule));
     }
 
@@ -107,7 +107,7 @@ public class AccidentJdbcTemplate {
 
     private List<Rule> findRulesByAccidentId(int accidentId) {
         return jdbc.query("select r.id as id, r.name as name from rules r " +
-                "join accident_rule ar on r.id = ar.rule_id " +
+                "join accidents_rules ar on r.id = ar.rule_id " +
                 "join accidents a on ar.accident_id = a.id " +
                 "where a.id = ?", ruleRowMapper, accidentId);
     }
