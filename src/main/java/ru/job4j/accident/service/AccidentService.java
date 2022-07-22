@@ -28,12 +28,7 @@ public class AccidentService {
     }
 
     public void create(Accident accident) {
-
         Accident accident1 = accidentHibernate.save(accident);
-        System.out.println("In service:");
-        System.out.println("name: " + accident1.getName());
-        System.out.println("type: " + accident1.getType());
-        accident1.getRules().forEach(System.out::println);
     }
 
     public void update(Accident accident) {
@@ -41,6 +36,6 @@ public class AccidentService {
     }
 
     public Accident getAccidentById(int id) {
-        return accidentHibernate.getAccidentById(id);
+        return accidentHibernate.getAccidentById(id).get();
     }
 }

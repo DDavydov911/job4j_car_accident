@@ -2,15 +2,15 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.store.AccidentTypeMem;
+import ru.job4j.accident.store.AccidentTypeHibernate;
 
 import java.util.List;
 
 @Service
 public class AccidentTypeService {
-    private final AccidentTypeMem typeMem;
+    private final AccidentTypeHibernate typeMem;
 
-    public AccidentTypeService(AccidentTypeMem typeMem) {
+    public AccidentTypeService(AccidentTypeHibernate typeMem) {
         this.typeMem = typeMem;
     }
 

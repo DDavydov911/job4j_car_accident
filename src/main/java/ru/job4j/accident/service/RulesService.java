@@ -2,20 +2,21 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Rule;
+import ru.job4j.accident.store.RuleHibernate;
 import ru.job4j.accident.store.RuleMem;
 
 import java.util.List;
 
 @Service
 public class RulesService {
-    private final RuleMem ruleMem;
+    private final RuleHibernate ruleMem;
 
-    public RulesService(RuleMem ruleMem) {
+    public RulesService(RuleHibernate ruleMem) {
         this.ruleMem = ruleMem;
     }
 
     public List<Rule> findAll() {
-        return ruleMem.findAll();
+        return ruleMem.findAllRules();
     }
 
     public Rule getRuleById(int id) {

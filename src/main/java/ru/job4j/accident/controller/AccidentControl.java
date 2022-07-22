@@ -22,7 +22,8 @@ public class AccidentControl {
     private final AccidentTypeService typeService;
     private final RulesService rulesService;
 
-    public AccidentControl(AccidentService service, AccidentTypeService typeService, RulesService rulesService) {
+    public AccidentControl(AccidentService service, AccidentTypeService typeService,
+                           RulesService rulesService) {
         this.service = service;
         this.typeService = typeService;
         this.rulesService = rulesService;
@@ -69,9 +70,4 @@ public class AccidentControl {
         );
         accident.setRules(rules);
     }
-
-    private void printList(List list) {
-        list.forEach(System.out::println);
-    }
-
 }

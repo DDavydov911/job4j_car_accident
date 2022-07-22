@@ -11,6 +11,9 @@ public class Rule {
     private int id;
     private String name;
 
+    public Rule() {
+    }
+
     public static Rule of(int id, String name) {
         Rule rule = new Rule();
         rule.id = id;
@@ -36,8 +39,12 @@ public class Rule {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Rule rule = (Rule) o;
         return id == rule.id;
     }
@@ -49,9 +56,9 @@ public class Rule {
 
     @Override
     public String toString() {
-        return "Rule{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Rule{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
 }
