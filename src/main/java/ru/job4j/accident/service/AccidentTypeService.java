@@ -2,7 +2,7 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.store.AccidentTypeHibernate;
+import ru.job4j.accident.repository.AccidentTypeHibernate;
 
 import java.util.List;
 

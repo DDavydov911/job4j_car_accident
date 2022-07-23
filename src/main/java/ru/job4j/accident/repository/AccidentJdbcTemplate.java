@@ -1,4 +1,4 @@
-package ru.job4j.accident.store;
+package ru.job4j.accident.repository;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
