@@ -30,34 +30,34 @@
             </div>
             <div class="card-body">
                 <form action="<c:url value='/save'/>" method='POST'>
-                    <input type="hidden" name="id" value="0"/>
+<%--                    <input type="hidden" name="id" value="0"/>--%>
                     <div class="form-group">
                         <label for="name">Название:</label>
-                        <input type="text" class="form-control" name="name" id="name">
+                        <input type="text" class="form-control" name="name" id="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="text">Текст:</label>
-                        <input type="text" class="form-control" name="text" id="text">
+                        <input type="text" class="form-control" name="text" id="text" required>
                     </div>
 
                     <div class="form-group">
                         <label for="address">Адрес:</label>
-                        <input type="text" class="form-control" name="address" id="address">
+                        <input type="text" class="form-control" name="address" id="address" required>
                     </div>
 
                     <div>
                         <label for="type">Тип проишествия:</label>
-                        <select class="form-control" name="type.id" id="type">
+                        <select class="form-control" name="type.id" id="type" required>
                             <c:forEach var="type" items="${types}">
-                                <option value="${type.id}">${type.name}</option>
+                                <option value="${type.id}" >${type.name}</option>
                             </c:forEach>
                         </select>
                     </div>
 
                     <div>
                         <label for="rules">Статьи:</label>
-                        <select class="form-control" name="rIds" id="rules" multiple>
+                        <select class="form-control" name="rIds" id="rules" required multiple>
                             <c:forEach var="rule" items="${rules}">
                                 <option value="${rule.id}">${rule.name}</option>
                             </c:forEach>

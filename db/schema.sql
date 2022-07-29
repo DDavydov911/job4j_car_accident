@@ -30,7 +30,7 @@ INSERT INTO accidents (name, text, address, type_id) VALUES('accident 3', 'Ве�
 
 CREATE TABLE accidents_rules (
      accident_id integer references accidents(id),
-     rule_id integer references rules(id)
+     rules_id integer references rules(id)
 );
 INSERT INTO accidents_rules (accident_id, rules_id) VALUES(1, 2);
 INSERT INTO accidents_rules (accident_id, rules_id) VALUES(2, 1);
