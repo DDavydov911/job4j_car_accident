@@ -18,13 +18,13 @@ import java.util.*;
 @Controller
 public class AccidentControl {
 
-    private final AccidentService service;
+    private final AccidentService accidentService;
     private final AccidentTypeService typeService;
     private final RulesService rulesService;
 
-    public AccidentControl(AccidentService service, AccidentTypeService typeService,
+    public AccidentControl(AccidentService accidentService, AccidentTypeService typeService,
                            RulesService rulesService) {
-        this.service = service;
+        this.accidentService = accidentService;
         this.typeService = typeService;
         this.rulesService = rulesService;
     }
@@ -40,13 +40,13 @@ public class AccidentControl {
     public String save(@ModelAttribute Accident accident,
                        @RequestParam("type.id") int id, HttpServletRequest req) {
         setAttr(accident, id, req);
-        service.create(accident);
+        accidentService.save(accident);
         return "redirect:/";
     }
 
     @GetMapping("/update")
     public String getEditPage(Model model, @RequestParam("id") int id) {
-        model.addAttribute("accident", service.getAccidentById(id));
+        model.addAttribute("accident", accidentService.getAccidentById(id));
         model.addAttribute("types", typeService.findAll());
         model.addAttribute("rules", rulesService.findAll());
         return "accident/update";
@@ -56,7 +56,7 @@ public class AccidentControl {
     public String edit(@ModelAttribute Accident accident,
                        @RequestParam("type.id") int id, HttpServletRequest req) {
         setAttr(accident, id, req);
-        service.update(accident);
+        accidentService.update(accident);
         return "redirect:/";
     }
 
