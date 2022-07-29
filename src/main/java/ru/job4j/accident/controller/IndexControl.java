@@ -20,8 +20,7 @@ public class IndexControl {
     @GetMapping("/")
     public String index(Model model) {
         List<Accident> res = new ArrayList<>();
-        accidents.findAll().forEach(res::add);
-        res.forEach(System.out::println);
+        res.addAll(accidents.findAll());
         model.addAttribute("accidents", res);
         return "index";
     }

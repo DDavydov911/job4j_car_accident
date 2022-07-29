@@ -2,23 +2,26 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.repository.AccidentTypeHibernate;
+import ru.job4j.accident.repository.AccidentTypeRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class AccidentTypeService {
-    private final AccidentTypeHibernate typeMem;
+    private final AccidentTypeRepository typeRepository;
 
-    public AccidentTypeService(AccidentTypeHibernate typeMem) {
-        this.typeMem = typeMem;
+    public AccidentTypeService(AccidentTypeRepository typeRepository) {
+        this.typeRepository = typeRepository;
     }
 
     public AccidentType getTypeById(int id) {
-        return typeMem.getTypeById(id);
+        return typeRepository.findById(id).get();
     }
 
     public List<AccidentType> findAll() {
-        return typeMem.findAll();
+        List<AccidentType> res = new ArrayList<>();
+        typeRepository.findAll().forEach(res::add);
+        return res;
     }
 }

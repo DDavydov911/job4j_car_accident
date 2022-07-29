@@ -5,12 +5,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "accidents")
 public class Accident {
@@ -28,6 +25,6 @@ public class Accident {
     @JoinColumn(name = "type_id")
     private AccidentType type;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     private Set<Rule> rules = new HashSet<>();
 }

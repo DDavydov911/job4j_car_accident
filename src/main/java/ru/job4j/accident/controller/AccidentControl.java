@@ -10,7 +10,7 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.service.AccidentTypeService;
-import ru.job4j.accident.service.RulesService;
+import ru.job4j.accident.service.RuleService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -20,19 +20,19 @@ public class AccidentControl {
 
     private final AccidentService accidentService;
     private final AccidentTypeService typeService;
-    private final RulesService rulesService;
+    private final RuleService ruleService;
 
     public AccidentControl(AccidentService accidentService, AccidentTypeService typeService,
-                           RulesService rulesService) {
+                           RuleService rulesService) {
         this.accidentService = accidentService;
         this.typeService = typeService;
-        this.rulesService = rulesService;
+        this.ruleService = rulesService;
     }
 
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("types", typeService.findAll());
-        model.addAttribute("rules", rulesService.findAll());
+        model.addAttribute("rules", ruleService.findAll());
         return "accident/create";
     }
 
@@ -48,7 +48,7 @@ public class AccidentControl {
     public String getEditPage(Model model, @RequestParam("id") int id) {
         model.addAttribute("accident", accidentService.getAccidentById(id));
         model.addAttribute("types", typeService.findAll());
-        model.addAttribute("rules", rulesService.findAll());
+        model.addAttribute("rules", ruleService.findAll());
         return "accident/update";
     }
 
@@ -66,7 +66,7 @@ public class AccidentControl {
         accident.setType(typeService.getTypeById(id));
         Set<Rule> rules = new HashSet<>();
         Arrays.stream(ids).forEach(
-                ruleId -> rules.add(rulesService.getRuleById(Integer.parseInt(ruleId)))
+                ruleId -> rules.add(ruleService.getRuleById(Integer.parseInt(ruleId)))
         );
         accident.setRules(rules);
     }
