@@ -12,8 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
-//@NoArgsConstructor
-//@RequiredArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
 @ToString
 @Entity
 public class Authorities {
