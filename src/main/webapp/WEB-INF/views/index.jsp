@@ -32,6 +32,11 @@
                 <a href="<c:url value='/create'/>">Добавить сообщение о проишествии</a>
             </div>
         </div>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a href="<c:url value='/logout'/>">Выйти</a>
+            </div>
+        </div>
     </nav>
     <table class="table">
         <c:forEach var="accident" items="${accidents}" varStatus="сounter">
