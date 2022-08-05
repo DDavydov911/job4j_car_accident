@@ -16,4 +16,4 @@
   
 [//]: # (  ![Image of level]&#40;/images/carsUpdate.png&#41;)
   
-Стек технологий: Spring boot, Thymeleaf, Bootstrap, Hibernate, PostgreSql.
+Стек технологий: Spring Data, Spring boot, Bootstrap, Hibernate, PostgreSql.
